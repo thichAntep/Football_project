@@ -4,6 +4,14 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="Resource/Bill.png" />
+    <File Path="Resource/Home_icon.gif" />
+    <File Path="Resource/Logout.png" />
+    <File Path="Resource/person.png" />
+    <File Path="Resource/schedule.png" />
+    <File Path="Resource/soccer_feild.png" />
+  </Folder>
   <Project Path="QuanLySanBong.BUS/QuanLySanBong.BUS.csproj" />
   <Project Path="QuanLySanBong.DAL/QuanLySanBong.DAL.csproj" />
   <Project Path="QuanLySanBong.DataBase/QuanLySanBong.Database.csproj" Id="8e18509c-ec35-49d6-a309-89d678087950" />
