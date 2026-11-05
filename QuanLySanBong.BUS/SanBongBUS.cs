@@ -22,7 +22,7 @@ namespace QuanLySanBong.BUS
             }
         }
 
-        private SanBongBUS()
+        public SanBongBUS()
         {
         }
 
@@ -57,22 +57,27 @@ namespace QuanLySanBong.BUS
                     "Giá thuê phải lớn hơn 0.");
             }
 
-            int result = SanBongDAL.Instance.Insert(sanBong);
+            int result = SanBongDAL.Instance.Insert(sanBong.TenSan,sanBong.ID,sanBong.TrangThai);
 
             return result > 0;
         }
 
-        public bool Delete(int id)
+        public bool Delete(SanBongDTO sanBong)
         {
-            if (id <= 0)
+            
+            if (sanBong.ID <= 0)
             {
                 throw new ArgumentException(
                     "Mã sân không hợp lệ.");
             }
 
-            int result = SanBongDAL.Instance.Delete(id);
+            int result = SanBongDAL.Instance.DeleteIfNoKhungGio(sanBong.LoaiSanID);
 
             return result > 0;
+        }
+        public int SoSanBongTrong()
+        {
+            return new SanBongDAL().LaySanBongDangTrong();
         }
     }
 }

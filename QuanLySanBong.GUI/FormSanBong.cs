@@ -17,7 +17,7 @@ namespace QuanLySanBong.GUI
             this.Load += FormSanBong_Load;
             dgvSanBong.CellClick += dgvSanBong_CellClick;
             btnThem.Click += btnThem_Click;
-            btnXoa.Click += btnXoa_Click;
+           // btnXoa.Click += btnXoa_Click;
             btnLamMoi.Click += btnLamMoi_Click;
         }
 
@@ -212,62 +212,62 @@ namespace QuanLySanBong.GUI
         }
 
         // Nút Xóa
-        private void btnXoa_Click(
-            object sender,
-            EventArgs e)
-        {
-            try
-            {
-                if (!int.TryParse(
-                        txtMaSan.Text,
-                        out int id))
-                {
-                    MessageBox.Show(
-                        "Vui lòng chọn sân cần xóa.");
-                    return;
-                }
+        //private void btnXoa_Click(
+        //    object sender,
+        //    EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (!int.TryParse(
+        //                txtMaSan.Text,
+        //                out int id))
+        //        {
+        //            MessageBox.Show(
+        //                "Vui lòng chọn sân cần xóa.");
+        //            return;
+        //        }
 
-                DialogResult result =
-                    MessageBox.Show(
-                        "Bạn có chắc muốn xóa sân này không?",
-                        "Xác nhận xóa",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+        //        DialogResult result =
+        //            MessageBox.Show(
+        //                "Bạn có chắc muốn xóa sân này không?",
+        //                "Xác nhận xóa",
+        //                MessageBoxButtons.YesNo,
+        //                MessageBoxIcon.Question);
 
-                if (result != DialogResult.Yes)
-                {
-                    return;
-                }
+        //        if (result != DialogResult.Yes)
+        //        {
+        //            return;
+        //        }
 
-                bool deleted =
-                    SanBongBUS.Instance.Delete(id);
+        //        bool deleted =
+        //            SanBongBUS.Instance.Delete(ID);
 
-                if (deleted)
-                {
-                    MessageBox.Show(
-                        "Xóa sân bóng thành công.",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+        //        if (deleted)
+        //        {
+        //            MessageBox.Show(
+        //                "Xóa sân bóng thành công.",
+        //                "Thông báo",
+        //                MessageBoxButtons.OK,
+        //                MessageBoxIcon.Information);
 
-                    LoadDanhSachSanBong();
-                    ClearInput();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Không tìm thấy sân cần xóa.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    ex.Message,
-                    "Lỗi xóa sân",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
+        //            LoadDanhSachSanBong();
+        //            ClearInput();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show(
+        //                "Không tìm thấy sân cần xóa.");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(
+        //            ex.Message,
+        //            "Lỗi xóa sân",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Error);
+        //    }
+        //}
 
         // Khi chọn một dòng trong DataGridView
         private void dgvSanBong_CellClick(

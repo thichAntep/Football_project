@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuanLySanBong.DAL
+namespace QuanLySanBong.BUS
 {
-    internal class DatSanDAL
+    internal class KhungGioBUS
     {
     }
 }

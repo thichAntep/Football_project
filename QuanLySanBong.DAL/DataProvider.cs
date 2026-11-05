@@ -72,5 +72,26 @@ namespace QuanLySanBong.DAL
             }
             return data;
         }
+        public object ExecuteScalar(string query, SqlParameter[] parameters = null)
+        {
+            object data = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    data = command.ExecuteScalar();
+                }
+            }
+
+            return data;
+        }
     }
 }
