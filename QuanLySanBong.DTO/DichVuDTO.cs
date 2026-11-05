@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuanLySanBong.DTO
 {
-    public  class DichVu
+    public  class DichVuDTO
     {
         
         // thuộc tính (property của class DichVu)

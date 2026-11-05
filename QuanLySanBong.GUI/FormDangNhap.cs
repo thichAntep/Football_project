@@ -35,10 +35,16 @@ namespace QuanLySanBong.GUI
                     MessageBoxIcon.Information
                 );
 
-                FormMain formMain = new FormMain(vaiTro);
+                Form_Main formMain = new Form_Main();
+
                 this.Hide();
+
+                formMain.FormClosed += (s, args) =>
+                {
+                    this.Close();
+                };
+
                 formMain.ShowDialog();
-                this.Show();
             }
             else
             {
