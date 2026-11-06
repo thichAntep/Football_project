@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace QuanLySanBong.GUI
 {
-    public partial class FormTrangChu : Form
+    public partial class ucDichVu : UserControl
     {
-        public FormTrangChu()
+        public ucDichVu()
         {
             InitializeComponent();
         }

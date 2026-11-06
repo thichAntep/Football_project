@@ -34,11 +34,11 @@
             label1 = new Label();
             tlnMenu = new TableLayoutPanel();
             btnThemSan = new Button();
-            lblDatSan = new Label();
-            lblKhachHang = new Label();
-            lblLichDat = new Label();
-            label7 = new Label();
             btnTrangChu = new Button();
+            btnDatSan = new Button();
+            btnBaoCao = new Button();
+            btnDichVu = new Button();
+            btnHoaDon = new Button();
             helpProvider1 = new HelpProvider();
             sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             pnlContent = new Panel();
@@ -98,11 +98,11 @@
             tlnMenu.ColumnCount = 1;
             tlnMenu.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tlnMenu.Controls.Add(btnThemSan, 0, 4);
-            tlnMenu.Controls.Add(lblDatSan, 0, 1);
-            tlnMenu.Controls.Add(lblKhachHang, 0, 2);
-            tlnMenu.Controls.Add(lblLichDat, 0, 3);
-            tlnMenu.Controls.Add(label7, 0, 5);
             tlnMenu.Controls.Add(btnTrangChu, 0, 0);
+            tlnMenu.Controls.Add(btnDatSan, 0, 1);
+            tlnMenu.Controls.Add(btnBaoCao, 0, 2);
+            tlnMenu.Controls.Add(btnDichVu, 0, 3);
+            tlnMenu.Controls.Add(btnHoaDon, 0, 5);
             tlnMenu.Location = new Point(21, 143);
             tlnMenu.Name = "tlnMenu";
             tlnMenu.RowCount = 6;
@@ -127,58 +127,6 @@
             btnThemSan.UseVisualStyleBackColor = true;
             btnThemSan.Click += btnThemSan_Click;
             // 
-            // lblDatSan
-            // 
-            lblDatSan.AutoSize = true;
-            lblDatSan.Dock = DockStyle.Fill;
-            lblDatSan.Image = Properties.Resources.soccer_feild;
-            lblDatSan.ImageAlign = ContentAlignment.MiddleLeft;
-            lblDatSan.Location = new Point(3, 108);
-            lblDatSan.Name = "lblDatSan";
-            lblDatSan.Size = new Size(229, 108);
-            lblDatSan.TabIndex = 1;
-            lblDatSan.Text = "Đặt Sân";
-            lblDatSan.TextAlign = ContentAlignment.MiddleCenter;
-            lblDatSan.Click += label3_Click;
-            // 
-            // lblKhachHang
-            // 
-            lblKhachHang.AutoSize = true;
-            lblKhachHang.Dock = DockStyle.Fill;
-            lblKhachHang.ForeColor = SystemColors.ControlText;
-            lblKhachHang.Image = Properties.Resources.person;
-            lblKhachHang.ImageAlign = ContentAlignment.MiddleLeft;
-            lblKhachHang.Location = new Point(3, 216);
-            lblKhachHang.Name = "lblKhachHang";
-            lblKhachHang.Size = new Size(229, 108);
-            lblKhachHang.TabIndex = 2;
-            lblKhachHang.Text = "Khách Hàng";
-            lblKhachHang.TextAlign = ContentAlignment.MiddleCenter;
-            lblKhachHang.UseWaitCursor = true;
-            // 
-            // lblLichDat
-            // 
-            lblLichDat.AutoSize = true;
-            lblLichDat.Dock = DockStyle.Fill;
-            lblLichDat.Image = Properties.Resources.schedule;
-            lblLichDat.ImageAlign = ContentAlignment.MiddleLeft;
-            lblLichDat.Location = new Point(3, 324);
-            lblLichDat.Name = "lblLichDat";
-            lblLichDat.Size = new Size(229, 108);
-            lblLichDat.TabIndex = 3;
-            lblLichDat.Text = "Lịch Đặt";
-            lblLichDat.TextAlign = ContentAlignment.MiddleCenter;
-            lblLichDat.UseMnemonic = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(3, 540);
-            label7.Name = "label7";
-            label7.Size = new Size(78, 32);
-            label7.TabIndex = 5;
-            label7.Text = "label7";
-            // 
             // btnTrangChu
             // 
             btnTrangChu.Dock = DockStyle.Fill;
@@ -189,6 +137,48 @@
             btnTrangChu.Text = "Trang Chủ";
             btnTrangChu.UseVisualStyleBackColor = true;
             btnTrangChu.Click += btnTrangChu_Click;
+            // 
+            // btnDatSan
+            // 
+            btnDatSan.Dock = DockStyle.Fill;
+            btnDatSan.ImageAlign = ContentAlignment.MiddleRight;
+            btnDatSan.Location = new Point(3, 111);
+            btnDatSan.Name = "btnDatSan";
+            btnDatSan.Size = new Size(229, 102);
+            btnDatSan.TabIndex = 7;
+            btnDatSan.Text = "Đặt Sân";
+            btnDatSan.UseVisualStyleBackColor = true;
+            // 
+            // btnBaoCao
+            // 
+            btnBaoCao.Dock = DockStyle.Fill;
+            btnBaoCao.Location = new Point(3, 219);
+            btnBaoCao.Name = "btnBaoCao";
+            btnBaoCao.RightToLeft = RightToLeft.No;
+            btnBaoCao.Size = new Size(229, 102);
+            btnBaoCao.TabIndex = 8;
+            btnBaoCao.Text = "Báo Cáo";
+            btnBaoCao.UseVisualStyleBackColor = true;
+            // 
+            // btnDichVu
+            // 
+            btnDichVu.Dock = DockStyle.Fill;
+            btnDichVu.Location = new Point(3, 327);
+            btnDichVu.Name = "btnDichVu";
+            btnDichVu.Size = new Size(229, 102);
+            btnDichVu.TabIndex = 9;
+            btnDichVu.Text = "Dịch Vụ";
+            btnDichVu.UseVisualStyleBackColor = true;
+            // 
+            // btnHoaDon
+            // 
+            btnHoaDon.Dock = DockStyle.Fill;
+            btnHoaDon.Location = new Point(3, 543);
+            btnHoaDon.Name = "btnHoaDon";
+            btnHoaDon.Size = new Size(229, 104);
+            btnHoaDon.TabIndex = 10;
+            btnHoaDon.Text = "Hóa Đơn";
+            btnHoaDon.UseVisualStyleBackColor = true;
             // 
             // pnlContent
             // 
@@ -211,7 +201,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tlnMenu.ResumeLayout(false);
-            tlnMenu.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -220,10 +209,6 @@
         private Panel pnlMenu;
         private TableLayoutPanel tlnMenu;
         private Label label1;
-        private Label lblDatSan;
-        private Label lblKhachHang;
-        private Label lblLichDat;
-        private Label label7;
         private Panel panel1;
         private Label label2;
         private HelpProvider helpProvider1;
@@ -231,5 +216,9 @@
         private Button btnTrangChu;
         private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
         private Panel pnlContent;
+        private Button btnDatSan;
+        private Button btnBaoCao;
+        private Button btnDichVu;
+        private Button btnHoaDon;
     }
 }

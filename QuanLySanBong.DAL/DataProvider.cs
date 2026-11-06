@@ -11,7 +11,7 @@ namespace QuanLySanBong.DAL
         /*
          Phạm Vi: private (vì chuỗi kết nối không cần thay đổi )
         */
-        private string connectionSTR = @"Server=.;Database=QuanLySanBong;Trusted_Connection=True;TrustServerCertificate=True;";
+        private string connectionSTR = @"Server=tcp:southcaodangdulich.database.windows.net,1433;Initial Catalog=southatcaodangdulich;User ID=PhamPhucQuyet;Password=MatKhauMoiManh#2026;Encrypt=True;TrustServerCertificate=False;Connection Timeout=60;";//@"Server=.;Database=QuanLySanBong;Trusted_Connection=True;TrustServerCertificate=True;";
         /*
          Phạm Vi: private(chỉ truy cập bên trong class)
          thuộc tính : static 

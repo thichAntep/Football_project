@@ -399,38 +399,34 @@ namespace QuanLySanBong.GUI
         // 7. CHỌN SÂN -> TẢI KHUNG GIỜ
         // ==========================================
 
-        private void cboXoaSan_SelectedIndexChanged(
-            object sender, EventArgs e)
+        private void cboXoaSan_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dangTaiDuLieu || cboXoaSan.SelectedValue == null)
                 return;
 
             try
             {
-                int maSan;
-
-                if (!int.TryParse(
-                    cboXoaSan.SelectedValue.ToString(), out maSan))
+                if (!int.TryParse(cboXoaSan.SelectedValue.ToString(), out int maSan))
                     return;
 
                 DataTable data = LichSanDAL.Instance.GetByMaSan(maSan);
 
-                data.Columns.Add("TenKhungGio", typeof(string));
+                if (!data.Columns.Contains("TenKhungGio"))
+                    data.Columns.Add("TenKhungGio", typeof(string));
 
                 foreach (DataRow row in data.Rows)
                 {
-                    string batDau = Convert.ToDateTime(
-                        row["GioBatDau"]).ToString("HH:mm");
+                    TimeSpan batDau = (TimeSpan)row["GioBatDau"];
+                    TimeSpan ketThuc = (TimeSpan)row["GioKetThuc"];
 
-                    string ketThuc = Convert.ToDateTime(
-                        row["GioKetThuc"]).ToString("HH:mm");
-
-                    row["TenKhungGio"] = batDau + " - " + ketThuc;
+                    row["TenKhungGio"] =
+                        $"{batDau:hh\\:mm} - {ketThuc:hh\\:mm}";
                 }
 
-                cboXoaKhungGio.DataSource = data;
+                cboXoaKhungGio.DataSource = null;
                 cboXoaKhungGio.DisplayMember = "TenKhungGio";
-                cboXoaKhungGio.ValueMember = "MaID";
+                cboXoaKhungGio.ValueMember = "MaKhungGio";
+                cboXoaKhungGio.DataSource = data;
 
                 lblLoaiSanXoa.Text = "Chưa chọn";
                 lblGiaTienXoa.Text = "Chưa chọn";
