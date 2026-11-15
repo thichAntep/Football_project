@@ -45,7 +45,7 @@ namespace QuanLySanBong.BUS
                     "Vui lòng nhập tên sân.");
             }
 
-            if (sanBong.LoaiSanID <= 0)
+            if (sanBong.MaLoai <= 0)
             {
                 throw new ArgumentException(
                     "Vui lòng chọn loại sân.");
@@ -71,13 +71,18 @@ namespace QuanLySanBong.BUS
                     "Mã sân không hợp lệ.");
             }
 
-            int result = SanBongDAL.Instance.DeleteIfNoKhungGio(sanBong.LoaiSanID);
+            int result = SanBongDAL.Instance.DeleteIfNoKhungGio(sanBong.MaLoai);
 
             return result > 0;
         }
         public int SoSanBongTrong()
         {
             return new SanBongDAL().LaySanBongDangTrong();
+        }
+        //Hàm Lấy Danh Sách Sân
+        public DataTable GetDanhSachSanTheoMaloai(int Maloai)
+        {
+            return SanBongDAL.Instance.GetDanhSachSan(Maloai);
         }
     }
 }

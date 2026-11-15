@@ -279,6 +279,26 @@ namespace QuanLySanBong.DAL
             return soLuong;
         }
         // Lấy Lịch Theo Ngày 
+        public DataTable GetDanhSachSan(int MaLoai)
+        {
+            string query = @" 
+            SELECT
+                        sb.MaSan,
+                        sb.TenSan,
+                        ls.TenLoai,
+                        ls.DonGiaGio,
+                        sb.TrangThai
+            FROM SanBong sb
+            INNER JOIN LoaiSan ls
+                ON sb.MaLoai = ls.MaLoai
+            WHERE sb.MaLoai = ls.MaLoai
+            ORDER BY sb.MaSan;";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Maloai",MaLoai)
+            };
+            return DataProvider.Instance.ExecuteQuery(query,parameters);
+        }
         
     }
 }
