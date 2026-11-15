@@ -63,9 +63,8 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(3, 21);
             panel1.Name = "panel1";
-            panel1.Size = new Size(262, 97);
+            panel1.Size = new Size(265, 97);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // label2
             // 
@@ -78,7 +77,6 @@
             label2.Size = new Size(266, 64);
             label2.TabIndex = 2;
             label2.Text = "      \r\n        Quản Lý Sân Bóng";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -91,7 +89,6 @@
             label1.Size = new Size(0, 32);
             label1.TabIndex = 1;
             label1.TextAlign = ContentAlignment.BottomCenter;
-            label1.Click += label1_Click;
             // 
             // tlnMenu
             // 
@@ -114,7 +111,6 @@
             tlnMenu.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tlnMenu.Size = new Size(235, 650);
             tlnMenu.TabIndex = 0;
-            tlnMenu.Paint += tlnMenu_Paint;
             // 
             // btnThemSan
             // 
@@ -148,6 +144,7 @@
             btnDatSan.TabIndex = 7;
             btnDatSan.Text = "Đặt Sân";
             btnDatSan.UseVisualStyleBackColor = true;
+            btnDatSan.Click += btnDatSan_Click;
             // 
             // btnBaoCao
             // 
@@ -182,7 +179,7 @@
             // 
             // pnlContent
             // 
-            pnlContent.Dock = DockStyle.Right;
+            pnlContent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlContent.Location = new Point(275, 0);
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(1544, 991);

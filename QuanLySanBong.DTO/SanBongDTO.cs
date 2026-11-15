@@ -6,7 +6,7 @@
 
         public string TenSan { get; set; }
 
-        public int LoaiSanID { get; set; }
+        public int MaLoai { get; set; }
 
         public decimal GiaThue { get; set; }
 
