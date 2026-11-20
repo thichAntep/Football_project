@@ -28,399 +28,466 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pnlSoDoTinhTrangSan = new Panel();
-            flpDanhSachSan = new FlowLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            label9 = new Label();
-            lblxam = new Label();
-            tableLayoutPanel7 = new TableLayoutPanel();
-            lbldo = new Label();
-            label8 = new Label();
-            tableLayoutPanel6 = new TableLayoutPanel();
-            lblVang = new Label();
-            label7 = new Label();
-            tableLayoutPanel5 = new TableLayoutPanel();
-            lblxanhla = new Label();
-            label6 = new Label();
-            label4 = new Label();
+            tblMain = new TableLayoutPanel();
+            tblTrai = new TableLayoutPanel();
+            tblPhai = new TableLayoutPanel();
+            tblLoc = new TableLayoutPanel();
+            tblFieds = new TableLayoutPanel();
+            lblTieuDeTrai = new Label();
+            lblTieuDePhai = new Label();
+            btnTimKiem = new Button();
+            dtpNgay = new DateTimePicker();
+            lblLoaiSan = new Label();
+            cboLoaiSan = new ComboBox();
+            fplChuThich = new FlowLayoutPanel();
+            fplSoDoSan = new FlowLayoutPanel();
+            txtSan = new TextBox();
+            txtNgay = new TextBox();
+            txtKhunGio = new TextBox();
+            txtDonGia = new TextBox();
+            txtSDT = new TextBox();
+            txtTenKH = new TextBox();
+            txtGhiChu = new TextBox();
             label1 = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            btnBoLoc = new Button();
-            cmbLoaiSan = new ComboBox();
-            dtpTimeTimKiem = new DateTimePicker();
-            label3 = new Label();
-            pnlThongTinDatSan = new Panel();
             label2 = new Label();
-            pnlSoDoTinhTrangSan.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            tableLayoutPanel7.SuspendLayout();
-            tableLayoutPanel6.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            numTienCoc = new NumericUpDown();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnDatSan = new Button();
+            btnHuyPhieu = new Button();
+            btnLamMoi = new Button();
+            tblMain.SuspendLayout();
+            tblTrai.SuspendLayout();
+            tblPhai.SuspendLayout();
+            tblLoc.SuspendLayout();
+            tblFieds.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numTienCoc).BeginInit();
             tableLayoutPanel1.SuspendLayout();
-            pnlThongTinDatSan.SuspendLayout();
             SuspendLayout();
             // 
-            // pnlSoDoTinhTrangSan
+            // tblMain
             // 
-            pnlSoDoTinhTrangSan.BackColor = Color.FromArgb(224, 224, 224);
-            pnlSoDoTinhTrangSan.Controls.Add(flpDanhSachSan);
-            pnlSoDoTinhTrangSan.Controls.Add(tableLayoutPanel2);
-            pnlSoDoTinhTrangSan.Dock = DockStyle.Left;
-            pnlSoDoTinhTrangSan.Location = new Point(0, 0);
-            pnlSoDoTinhTrangSan.Name = "pnlSoDoTinhTrangSan";
-            pnlSoDoTinhTrangSan.Size = new Size(1130, 862);
-            pnlSoDoTinhTrangSan.TabIndex = 0;
+            tblMain.ColumnCount = 2;
+            tblMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tblMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tblMain.Controls.Add(tblTrai, 0, 0);
+            tblMain.Controls.Add(tblPhai, 1, 0);
+            tblMain.Dock = DockStyle.Fill;
+            tblMain.Location = new Point(0, 0);
+            tblMain.Name = "tblMain";
+            tblMain.RowCount = 1;
+            tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblMain.Size = new Size(1260, 717);
+            tblMain.TabIndex = 0;
             // 
-            // flpDanhSachSan
+            // tblTrai
             // 
-            flpDanhSachSan.Dock = DockStyle.Bottom;
-            flpDanhSachSan.Location = new Point(0, 254);
-            flpDanhSachSan.Name = "flpDanhSachSan";
-            flpDanhSachSan.Size = new Size(1130, 608);
-            flpDanhSachSan.TabIndex = 8;
+            tblTrai.ColumnCount = 1;
+            tblTrai.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tblTrai.Controls.Add(tblLoc, 0, 1);
+            tblTrai.Controls.Add(lblTieuDeTrai, 0, 0);
+            tblTrai.Controls.Add(fplChuThich, 0, 2);
+            tblTrai.Controls.Add(fplSoDoSan, 0, 3);
+            tblTrai.Dock = DockStyle.Fill;
+            tblTrai.Location = new Point(3, 3);
+            tblTrai.Name = "tblTrai";
+            tblTrai.RowCount = 4;
+            tblTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tblTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            tblTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            tblTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            tblTrai.Size = new Size(876, 711);
+            tblTrai.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // tblPhai
             // 
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 2);
-            tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
-            tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(1130, 257);
-            tableLayoutPanel2.TabIndex = 6;
+            tblPhai.ColumnCount = 1;
+            tblPhai.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tblPhai.Controls.Add(tblFieds, 0, 1);
+            tblPhai.Controls.Add(lblTieuDePhai, 0, 0);
+            tblPhai.Controls.Add(tableLayoutPanel1, 0, 2);
+            tblPhai.Dock = DockStyle.Fill;
+            tblPhai.Location = new Point(885, 3);
+            tblPhai.Name = "tblPhai";
+            tblPhai.RowCount = 3;
+            tblPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 9.523809F));
+            tblPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 76.1904755F));
+            tblPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tblPhai.Size = new Size(372, 711);
+            tblPhai.TabIndex = 1;
             // 
-            // tableLayoutPanel3
+            // tblLoc
             // 
-            tableLayoutPanel3.ColumnCount = 5;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 4, 0);
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel7, 3, 0);
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel6, 2, 0);
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel5, 1, 0);
-            tableLayoutPanel3.Controls.Add(label4, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 195);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1124, 59);
-            tableLayoutPanel3.TabIndex = 7;
-            tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
+            tblLoc.ColumnCount = 4;
+            tblLoc.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tblLoc.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            tblLoc.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tblLoc.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblLoc.Controls.Add(btnTimKiem, 0, 0);
+            tblLoc.Controls.Add(dtpNgay, 1, 0);
+            tblLoc.Controls.Add(lblLoaiSan, 2, 0);
+            tblLoc.Controls.Add(cboLoaiSan, 3, 0);
+            tblLoc.Location = new Point(3, 74);
+            tblLoc.Name = "tblLoc";
+            tblLoc.RowCount = 1;
+            tblLoc.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblLoc.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tblLoc.Size = new Size(870, 100);
+            tblLoc.TabIndex = 0;
             // 
-            // tableLayoutPanel4
+            // tblFieds
             // 
-            tableLayoutPanel4.BackColor = Color.FromArgb(224, 224, 224);
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tableLayoutPanel4.Controls.Add(label9, 1, 0);
-            tableLayoutPanel4.Controls.Add(lblxam, 0, 0);
-            tableLayoutPanel4.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-            tableLayoutPanel4.Location = new Point(899, 3);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(222, 53);
-            tableLayoutPanel4.TabIndex = 9;
-            tableLayoutPanel4.Paint += tableLayoutPanel4_Paint;
+            tblFieds.ColumnCount = 2;
+            tblFieds.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.27322F));
+            tblFieds.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.7267761F));
+            tblFieds.Controls.Add(txtSan, 1, 0);
+            tblFieds.Controls.Add(txtNgay, 1, 1);
+            tblFieds.Controls.Add(txtKhunGio, 1, 2);
+            tblFieds.Controls.Add(txtDonGia, 1, 3);
+            tblFieds.Controls.Add(txtSDT, 1, 4);
+            tblFieds.Controls.Add(txtTenKH, 1, 5);
+            tblFieds.Controls.Add(txtGhiChu, 1, 7);
+            tblFieds.Controls.Add(label1, 0, 0);
+            tblFieds.Controls.Add(label2, 0, 1);
+            tblFieds.Controls.Add(label3, 0, 2);
+            tblFieds.Controls.Add(label4, 0, 3);
+            tblFieds.Controls.Add(label5, 0, 4);
+            tblFieds.Controls.Add(label6, 0, 5);
+            tblFieds.Controls.Add(label7, 0, 6);
+            tblFieds.Controls.Add(label8, 0, 7);
+            tblFieds.Controls.Add(numTienCoc, 1, 6);
+            tblFieds.Dock = DockStyle.Fill;
+            tblFieds.Location = new Point(3, 70);
+            tblFieds.Name = "tblFieds";
+            tblFieds.RowCount = 8;
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tblFieds.Size = new Size(366, 535);
+            tblFieds.TabIndex = 0;
             // 
-            // label9
+            // lblTieuDeTrai
             // 
-            label9.Anchor = AnchorStyles.None;
-            label9.AutoSize = true;
-            label9.Location = new Point(58, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(150, 32);
-            label9.TabIndex = 11;
-            label9.Text = "Đang Bảo Trì";
+            lblTieuDeTrai.Anchor = AnchorStyles.None;
+            lblTieuDeTrai.AutoSize = true;
+            lblTieuDeTrai.Location = new Point(278, 19);
+            lblTieuDeTrai.Name = "lblTieuDeTrai";
+            lblTieuDeTrai.Size = new Size(320, 32);
+            lblTieuDeTrai.TabIndex = 1;
+            lblTieuDeTrai.Text = "SƠ ĐỒ VÀ TÌNH TRẠNG SÂN";
             // 
-            // lblxam
+            // lblTieuDePhai
             // 
-            lblxam.AutoSize = true;
-            lblxam.BackColor = Color.FromArgb(120, 120, 120);
-            lblxam.Location = new Point(3, 0);
-            lblxam.Name = "lblxam";
-            lblxam.Size = new Size(35, 53);
-            lblxam.TabIndex = 0;
-            lblxam.Text = "       ";
+            lblTieuDePhai.Anchor = AnchorStyles.None;
+            lblTieuDePhai.AutoSize = true;
+            lblTieuDePhai.Location = new Point(121, 17);
+            lblTieuDePhai.Name = "lblTieuDePhai";
+            lblTieuDePhai.Size = new Size(130, 32);
+            lblTieuDePhai.TabIndex = 1;
+            lblTieuDePhai.Text = "PHIẾU ĐẶT";
             // 
-            // tableLayoutPanel7
+            // btnTimKiem
             // 
-            tableLayoutPanel7.BackColor = Color.FromArgb(224, 224, 224);
-            tableLayoutPanel7.ColumnCount = 2;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tableLayoutPanel7.Controls.Add(lbldo, 0, 0);
-            tableLayoutPanel7.Controls.Add(label8, 1, 0);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(675, 3);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 1;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(218, 53);
-            tableLayoutPanel7.TabIndex = 10;
+            btnTimKiem.Dock = DockStyle.Fill;
+            btnTimKiem.Location = new Point(3, 3);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(168, 94);
+            btnTimKiem.TabIndex = 0;
+            btnTimKiem.Text = "Tìm Kiếm";
+            btnTimKiem.UseVisualStyleBackColor = true;
             // 
-            // lbldo
+            // dtpNgay
             // 
-            lbldo.AutoSize = true;
-            lbldo.BackColor = Color.FromArgb(255, 0, 0);
-            lbldo.Dock = DockStyle.Fill;
-            lbldo.Location = new Point(3, 0);
-            lbldo.Name = "lbldo";
-            lbldo.Size = new Size(37, 53);
-            lbldo.TabIndex = 0;
-            lbldo.Text = "         ";
+            dtpNgay.Anchor = AnchorStyles.None;
+            dtpNgay.Format = DateTimePickerFormat.Custom;
+            dtpNgay.Location = new Point(177, 30);
+            dtpNgay.Name = "dtpNgay";
+            dtpNgay.Size = new Size(298, 39);
+            dtpNgay.TabIndex = 1;
             // 
-            // label8
+            // lblLoaiSan
             // 
-            label8.Anchor = AnchorStyles.None;
-            label8.AutoSize = true;
-            label8.Location = new Point(77, 10);
-            label8.Name = "label8";
-            label8.Size = new Size(107, 32);
-            label8.TabIndex = 10;
-            label8.Text = "Đang Đá";
+            lblLoaiSan.Anchor = AnchorStyles.None;
+            lblLoaiSan.Location = new Point(511, 28);
+            lblLoaiSan.Name = "lblLoaiSan";
+            lblLoaiSan.Size = new Size(107, 43);
+            lblLoaiSan.TabIndex = 2;
+            lblLoaiSan.Text = "Loại Sân";
             // 
-            // tableLayoutPanel6
+            // cboLoaiSan
             // 
-            tableLayoutPanel6.ColumnCount = 2;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tableLayoutPanel6.Controls.Add(lblVang, 0, 0);
-            tableLayoutPanel6.Controls.Add(label7, 1, 0);
-            tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(451, 3);
-            tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 1;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(218, 53);
-            tableLayoutPanel6.TabIndex = 10;
+            cboLoaiSan.Anchor = AnchorStyles.None;
+            cboLoaiSan.FormattingEnabled = true;
+            cboLoaiSan.Location = new Point(655, 30);
+            cboLoaiSan.Name = "cboLoaiSan";
+            cboLoaiSan.Size = new Size(212, 40);
+            cboLoaiSan.TabIndex = 3;
             // 
-            // lblVang
+            // fplChuThich
             // 
-            lblVang.AutoSize = true;
-            lblVang.BackColor = Color.FromArgb(255, 255, 0);
-            lblVang.Dock = DockStyle.Fill;
-            lblVang.Location = new Point(3, 0);
-            lblVang.Name = "lblVang";
-            lblVang.RightToLeft = RightToLeft.Yes;
-            lblVang.Size = new Size(37, 53);
-            lblVang.TabIndex = 8;
-            lblVang.Text = "      ";
-            lblVang.Click += lblVang_Click;
+            fplChuThich.Dock = DockStyle.Fill;
+            fplChuThich.Location = new Point(3, 180);
+            fplChuThich.Name = "fplChuThich";
+            fplChuThich.Size = new Size(870, 100);
+            fplChuThich.TabIndex = 2;
             // 
-            // label7
+            // fplSoDoSan
             // 
-            label7.Anchor = AnchorStyles.None;
-            label7.AutoSize = true;
-            label7.Location = new Point(87, 10);
-            label7.Name = "label7";
-            label7.Size = new Size(87, 32);
-            label7.TabIndex = 9;
-            label7.Text = "Đã Đặt";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
+            fplSoDoSan.Dock = DockStyle.Fill;
+            fplSoDoSan.Location = new Point(3, 286);
+            fplSoDoSan.Name = "fplSoDoSan";
+            fplSoDoSan.Size = new Size(870, 422);
+            fplSoDoSan.TabIndex = 3;
             // 
-            // tableLayoutPanel5
+            // txtSan
             // 
-            tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tableLayoutPanel5.Controls.Add(lblxanhla, 0, 0);
-            tableLayoutPanel5.Controls.Add(label6, 1, 0);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(227, 3);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(218, 53);
-            tableLayoutPanel5.TabIndex = 10;
+            txtSan.Anchor = AnchorStyles.None;
+            txtSan.Location = new Point(186, 13);
+            txtSan.Name = "txtSan";
+            txtSan.Size = new Size(177, 39);
+            txtSan.TabIndex = 0;
             // 
-            // lblxanhla
+            // txtNgay
             // 
-            lblxanhla.BackColor = Color.FromArgb(0, 255, 0);
-            lblxanhla.Dock = DockStyle.Fill;
-            lblxanhla.Location = new Point(3, 0);
-            lblxanhla.Name = "lblxanhla";
-            lblxanhla.Size = new Size(37, 53);
-            lblxanhla.TabIndex = 8;
-            lblxanhla.Click += label6_Click;
+            txtNgay.Anchor = AnchorStyles.None;
+            txtNgay.Location = new Point(186, 79);
+            txtNgay.Name = "txtNgay";
+            txtNgay.Size = new Size(177, 39);
+            txtNgay.TabIndex = 1;
             // 
-            // label6
+            // txtKhunGio
             // 
-            label6.Anchor = AnchorStyles.None;
-            label6.AutoSize = true;
-            label6.Location = new Point(93, 10);
-            label6.Name = "label6";
-            label6.Size = new Size(75, 32);
-            label6.TabIndex = 8;
-            label6.Text = "Trống";
+            txtKhunGio.Location = new Point(186, 135);
+            txtKhunGio.Name = "txtKhunGio";
+            txtKhunGio.Size = new Size(177, 39);
+            txtKhunGio.TabIndex = 2;
             // 
-            // label4
+            // txtDonGia
             // 
-            label4.Anchor = AnchorStyles.None;
-            label4.AutoSize = true;
-            label4.Location = new Point(51, 13);
-            label4.Name = "label4";
-            label4.Size = new Size(122, 32);
-            label4.TabIndex = 7;
-            label4.Text = "Chú Thích";
+            txtDonGia.Location = new Point(186, 201);
+            txtDonGia.Name = "txtDonGia";
+            txtDonGia.Size = new Size(177, 39);
+            txtDonGia.TabIndex = 3;
+            // 
+            // txtSDT
+            // 
+            txtSDT.Location = new Point(186, 267);
+            txtSDT.Name = "txtSDT";
+            txtSDT.Size = new Size(177, 39);
+            txtSDT.TabIndex = 4;
+            // 
+            // txtTenKH
+            // 
+            txtTenKH.Location = new Point(186, 333);
+            txtTenKH.Name = "txtTenKH";
+            txtTenKH.Size = new Size(177, 39);
+            txtTenKH.TabIndex = 5;
+            // 
+            // txtGhiChu
+            // 
+            txtGhiChu.Location = new Point(186, 465);
+            txtGhiChu.Name = "txtGhiChu";
+            txtGhiChu.Size = new Size(177, 39);
+            txtGhiChu.TabIndex = 7;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(405, 16);
+            label1.Location = new Point(65, 17);
             label1.Name = "label1";
-            label1.Size = new Size(320, 32);
-            label1.TabIndex = 0;
-            label1.Text = "SƠ ĐỒ VÀ TÌNH TRẠNG SÂN";
-            label1.Click += label1_Click;
+            label1.Size = new Size(53, 32);
+            label1.TabIndex = 8;
+            label1.Text = "Sân";
             // 
-            // tableLayoutPanel1
+            // label2
             // 
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Controls.Add(btnBoLoc, 0, 0);
-            tableLayoutPanel1.Controls.Add(cmbLoaiSan, 3, 0);
-            tableLayoutPanel1.Controls.Add(dtpTimeTimKiem, 1, 0);
-            tableLayoutPanel1.Controls.Add(label3, 2, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 67);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1124, 122);
-            tableLayoutPanel1.TabIndex = 5;
-            // 
-            // btnBoLoc
-            // 
-            btnBoLoc.Anchor = AnchorStyles.None;
-            btnBoLoc.Location = new Point(9, 38);
-            btnBoLoc.Name = "btnBoLoc";
-            btnBoLoc.Size = new Size(150, 46);
-            btnBoLoc.TabIndex = 1;
-            btnBoLoc.Text = "Tìm Kiếm";
-            btnBoLoc.UseVisualStyleBackColor = true;
-            // 
-            // cmbLoaiSan
-            // 
-            cmbLoaiSan.Anchor = AnchorStyles.None;
-            cmbLoaiSan.FormattingEnabled = true;
-            cmbLoaiSan.Location = new Point(861, 41);
-            cmbLoaiSan.Name = "cmbLoaiSan";
-            cmbLoaiSan.Size = new Size(242, 40);
-            cmbLoaiSan.TabIndex = 3;
-            cmbLoaiSan.SelectedIndexChanged += cmbLoaiSan_SelectedIndexChanged;
-            // 
-            // dtpTimeTimKiem
-            // 
-            dtpTimeTimKiem.Anchor = AnchorStyles.None;
-            dtpTimeTimKiem.Location = new Point(208, 41);
-            dtpTimeTimKiem.Name = "dtpTimeTimKiem";
-            dtpTimeTimKiem.Size = new Size(425, 39);
-            dtpTimeTimKiem.TabIndex = 2;
-            dtpTimeTimKiem.ValueChanged += dtpTimeTimKiem_ValueChanged;
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Location = new Point(56, 83);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 32);
+            label2.TabIndex = 9;
+            label2.Text = "Ngày";
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(705, 45);
+            label3.Location = new Point(28, 149);
             label3.Name = "label3";
-            label3.Size = new Size(103, 32);
-            label3.TabIndex = 4;
-            label3.Text = "Loại Sân";
+            label3.Size = new Size(127, 32);
+            label3.TabIndex = 10;
+            label3.Text = "Khung Giờ";
             // 
-            // pnlThongTinDatSan
+            // label4
             // 
-            pnlThongTinDatSan.Controls.Add(label2);
-            pnlThongTinDatSan.Dock = DockStyle.Right;
-            pnlThongTinDatSan.Location = new Point(1136, 0);
-            pnlThongTinDatSan.Name = "pnlThongTinDatSan";
-            pnlThongTinDatSan.Size = new Size(396, 862);
-            pnlThongTinDatSan.TabIndex = 1;
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Location = new Point(41, 215);
+            label4.Name = "label4";
+            label4.Size = new Size(100, 32);
+            label4.TabIndex = 11;
+            label4.Text = "Đơn Giá";
             // 
-            // label2
+            // label5
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(132, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(130, 32);
-            label2.TabIndex = 0;
-            label2.Text = "PHIẾU ĐẶT";
+            label5.Anchor = AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.Location = new Point(9, 281);
+            label5.Name = "label5";
+            label5.Size = new Size(164, 32);
+            label5.TabIndex = 12;
+            label5.Text = "Số Điện Thoại";
             // 
-            // ucDatSan
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.Location = new Point(29, 347);
+            label6.Name = "label6";
+            label6.Size = new Size(124, 32);
+            label6.TabIndex = 13;
+            label6.Text = "Tên Khách";
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.None;
+            label7.AutoSize = true;
+            label7.Location = new Point(38, 413);
+            label7.Name = "label7";
+            label7.Size = new Size(107, 32);
+            label7.TabIndex = 14;
+            label7.Text = "Tiền Cọc";
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.None;
+            label8.AutoSize = true;
+            label8.Location = new Point(41, 482);
+            label8.Name = "label8";
+            label8.Size = new Size(100, 32);
+            label8.TabIndex = 15;
+            label8.Text = "Ghi Chú";
+            // 
+            // numTienCoc
+            // 
+            numTienCoc.Location = new Point(186, 399);
+            numTienCoc.Name = "numTienCoc";
+            numTienCoc.Size = new Size(177, 39);
+            numTienCoc.TabIndex = 16;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.Controls.Add(btnHuyPhieu, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnLamMoi, 2, 0);
+            tableLayoutPanel1.Controls.Add(btnDatSan, 0, 0);
+            tableLayoutPanel1.Location = new Point(3, 611);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(366, 97);
+            tableLayoutPanel1.TabIndex = 2;
+            // 
+            // btnDatSan
+            // 
+            btnDatSan.Dock = DockStyle.Top;
+            btnDatSan.Location = new Point(3, 3);
+            btnDatSan.Name = "btnDatSan";
+            btnDatSan.Size = new Size(116, 46);
+            btnDatSan.TabIndex = 0;
+            btnDatSan.Text = "Đặt Sân";
+            btnDatSan.UseVisualStyleBackColor = true;
+            // 
+            // btnHuyPhieu
+            // 
+            btnHuyPhieu.Dock = DockStyle.Top;
+            btnHuyPhieu.Location = new Point(125, 3);
+            btnHuyPhieu.Name = "btnHuyPhieu";
+            btnHuyPhieu.Size = new Size(116, 46);
+            btnHuyPhieu.TabIndex = 1;
+            btnHuyPhieu.Text = "Hủy";
+            btnHuyPhieu.UseVisualStyleBackColor = true;
+            // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Dock = DockStyle.Top;
+            btnLamMoi.Location = new Point(247, 3);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(116, 46);
+            btnLamMoi.TabIndex = 2;
+            btnLamMoi.Text = "Làm Mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            // 
+            // ucBaoCao
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(pnlThongTinDatSan);
-            Controls.Add(pnlSoDoTinhTrangSan);
-            Name = "ucDatSan";
-            Size = new Size(1532, 862);
-            pnlSoDoTinhTrangSan.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
-            tableLayoutPanel4.PerformLayout();
-            tableLayoutPanel7.ResumeLayout(false);
-            tableLayoutPanel7.PerformLayout();
-            tableLayoutPanel6.ResumeLayout(false);
-            tableLayoutPanel6.PerformLayout();
-            tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel5.PerformLayout();
+            Controls.Add(tblMain);
+            Name = "ucBaoCao";
+            Size = new Size(1260, 717);
+            tblMain.ResumeLayout(false);
+            tblTrai.ResumeLayout(false);
+            tblTrai.PerformLayout();
+            tblPhai.ResumeLayout(false);
+            tblPhai.PerformLayout();
+            tblLoc.ResumeLayout(false);
+            tblFieds.ResumeLayout(false);
+            tblFieds.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numTienCoc).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            pnlThongTinDatSan.ResumeLayout(false);
-            pnlThongTinDatSan.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel pnlSoDoTinhTrangSan;
+        private TableLayoutPanel tblMain;
+        private TableLayoutPanel tblTrai;
+        private TableLayoutPanel tblPhai;
+        private TableLayoutPanel tblLoc;
+        private TableLayoutPanel tblFieds;
+        private Label lblTieuDeTrai;
+        private Label lblTieuDePhai;
+        private Button btnTimKiem;
+        private DateTimePicker dtpNgay;
+        private Label lblLoaiSan;
+        private ComboBox cboLoaiSan;
+        private FlowLayoutPanel fplChuThich;
+        private FlowLayoutPanel fplSoDoSan;
+        private TextBox txtSan;
+        private TextBox txtNgay;
+        private TextBox txtKhunGio;
+        private TextBox txtDonGia;
+        private TextBox txtSDT;
+        private TextBox txtTenKH;
+        private TextBox txtGhiChu;
         private Label label1;
-        private Panel pnlThongTinDatSan;
         private Label label2;
         private Label label3;
-        private ComboBox cmbLoaiSan;
-        private DateTimePicker dtpTimeTimKiem;
-        private Button btnBoLoc;
-        private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel3;
         private Label label4;
-        private Label lblxanhla;
-        private Label lblVang;
-        private TableLayoutPanel tableLayoutPanel4;
-        private TableLayoutPanel tableLayoutPanel7;
-        private Label lbldo;
-        private TableLayoutPanel tableLayoutPanel6;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Label lblxam;
-        private Label label9;
-        private Label label8;
-        private Label label7;
+        private Label label5;
         private Label label6;
-        private FlowLayoutPanel flpDanhSachSan;
+        private Label label7;
+        private Label label8;
+        private NumericUpDown numTienCoc;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Button btnHuyPhieu;
+        private Button btnLamMoi;
+        private Button btnDatSan;
     }
 }

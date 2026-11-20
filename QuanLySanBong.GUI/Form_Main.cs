@@ -10,8 +10,10 @@ namespace QuanLySanBong.GUI
 {
     public partial class Form_Main : Form
     {
+        ucHoaDon HoaDon = new ucHoaDon();
         ucTrangChu TrangChu = new ucTrangChu();
         ucDatSan DatSan = new ucDatSan();
+        ucDichVu DichVu = new ucDichVu();
         public Form_Main()
         {
             InitializeComponent();
@@ -42,6 +44,19 @@ namespace QuanLySanBong.GUI
             pnlContent.Controls.Clear();
             DatSan.Dock = DockStyle.Fill;
             pnlContent.Controls.Add(DatSan);
+        }
+        private void btnDichuVu_Click(object sender,EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            DichVu.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(DichVu);
+
+        }
+        private void btnHoaDon_Click(object sender,EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            HoaDon.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(HoaDon);
         }
     }
 }

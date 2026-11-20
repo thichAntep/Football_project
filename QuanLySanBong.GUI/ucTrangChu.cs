@@ -176,7 +176,7 @@ namespace QuanLySanBong.GUI
                     else
                     {
                         string ten = r.Field<string>("TenKH");
-                        string sdt = r.Field<string>("SDT");
+                        string sdt = r.Field<string>("SoDienThoai");
 
                         if (daQua)
                         {

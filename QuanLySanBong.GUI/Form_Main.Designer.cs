@@ -166,6 +166,7 @@
             btnDichVu.TabIndex = 9;
             btnDichVu.Text = "Dịch Vụ";
             btnDichVu.UseVisualStyleBackColor = true;
+            btnDichVu.Click += btnDichuVu_Click;
             // 
             // btnHoaDon
             // 
@@ -176,6 +177,7 @@
             btnHoaDon.TabIndex = 10;
             btnHoaDon.Text = "Hóa Đơn";
             btnHoaDon.UseVisualStyleBackColor = true;
+            btnHoaDon.Click += btnHoaDon_Click;
             // 
             // pnlContent
             // 
