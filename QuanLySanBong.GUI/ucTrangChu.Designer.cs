@@ -31,10 +31,10 @@
             btnThemSan = new Button();
             pnlHeader = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            lblDoanhThu = new Label();
             lblSanDaDat = new Label();
             lblKhachMoi = new Label();
             lblSanTrong = new Label();
+            lblDoanhThu = new Label();
             dgvLich = new DataGridView();
             dtpNgay = new DateTimePicker();
             panel1 = new Panel();
@@ -57,6 +57,7 @@
             // 
             // pnlHeader
             // 
+            pnlHeader.BackColor = Color.FromArgb(230, 245, 255);
             pnlHeader.Controls.Add(tableLayoutPanel2);
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
@@ -72,10 +73,10 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Controls.Add(lblDoanhThu, 1, 0);
             tableLayoutPanel2.Controls.Add(lblSanDaDat, 0, 0);
             tableLayoutPanel2.Controls.Add(lblKhachMoi, 2, 0);
             tableLayoutPanel2.Controls.Add(lblSanTrong, 3, 0);
+            tableLayoutPanel2.Controls.Add(lblDoanhThu, 1, 0);
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
@@ -84,17 +85,6 @@
             tableLayoutPanel2.Size = new Size(1602, 158);
             tableLayoutPanel2.TabIndex = 0;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
-            // 
-            // lblDoanhThu
-            // 
-            lblDoanhThu.Anchor = AnchorStyles.None;
-            lblDoanhThu.AutoSize = true;
-            lblDoanhThu.Location = new Point(533, 63);
-            lblDoanhThu.Name = "lblDoanhThu";
-            lblDoanhThu.Size = new Size(133, 32);
-            lblDoanhThu.TabIndex = 1;
-            lblDoanhThu.Text = "Doanh Thu";
-            lblDoanhThu.Click += label2_Click;
             // 
             // lblSanDaDat
             // 
@@ -110,9 +100,11 @@
             // 
             lblKhachMoi.Anchor = AnchorStyles.None;
             lblKhachMoi.AutoSize = true;
-            lblKhachMoi.Location = new Point(936, 63);
+            lblKhachMoi.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblKhachMoi.ForeColor = Color.FromArgb(255, 128, 255);
+            lblKhachMoi.Location = new Point(910, 56);
             lblKhachMoi.Name = "lblKhachMoi";
-            lblKhachMoi.Size = new Size(128, 32);
+            lblKhachMoi.Size = new Size(180, 45);
             lblKhachMoi.TabIndex = 2;
             lblKhachMoi.Text = "Khách Mới";
             // 
@@ -120,11 +112,27 @@
             // 
             lblSanTrong.Anchor = AnchorStyles.None;
             lblSanTrong.AutoSize = true;
-            lblSanTrong.Location = new Point(1308, 63);
+            lblSanTrong.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblSanTrong.ForeColor = Color.FromArgb(128, 255, 128);
+            lblSanTrong.Location = new Point(1270, 56);
             lblSanTrong.Name = "lblSanTrong";
-            lblSanTrong.Size = new Size(185, 32);
+            lblSanTrong.Size = new Size(261, 45);
             lblSanTrong.TabIndex = 3;
             lblSanTrong.Text = "Sân Đang Trống";
+            // 
+            // lblDoanhThu
+            // 
+            lblDoanhThu.Anchor = AnchorStyles.None;
+            lblDoanhThu.AutoSize = true;
+            lblDoanhThu.FlatStyle = FlatStyle.System;
+            lblDoanhThu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDoanhThu.ForeColor = Color.FromArgb(255, 192, 128);
+            lblDoanhThu.Location = new Point(507, 56);
+            lblDoanhThu.Name = "lblDoanhThu";
+            lblDoanhThu.Size = new Size(185, 45);
+            lblDoanhThu.TabIndex = 1;
+            lblDoanhThu.Text = "Doanh Thu";
+            lblDoanhThu.Click += label2_Click;
             // 
             // dgvLich
             // 

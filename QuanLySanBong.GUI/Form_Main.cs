@@ -10,6 +10,7 @@ namespace QuanLySanBong.GUI
 {
     public partial class Form_Main : Form
     {
+        ucBaoCao BaoCao = new ucBaoCao();
         ucHoaDon HoaDon = new ucHoaDon();
         ucTrangChu TrangChu = new ucTrangChu();
         ucDatSan DatSan = new ucDatSan();
@@ -57,6 +58,12 @@ namespace QuanLySanBong.GUI
             pnlContent.Controls.Clear();
             HoaDon.Dock = DockStyle.Fill;
             pnlContent.Controls.Add(HoaDon);
+        }
+        private void btnBaoCao_Click(object sender ,EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            BaoCao.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(BaoCao);
         }
     }
 }

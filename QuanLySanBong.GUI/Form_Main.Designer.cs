@@ -49,6 +49,7 @@
             // 
             // pnlMenu
             // 
+            pnlMenu.BackColor = Color.FromArgb(98, 167, 234);
             pnlMenu.Controls.Add(panel1);
             pnlMenu.Controls.Add(tlnMenu);
             pnlMenu.Dock = DockStyle.Left;
@@ -70,11 +71,12 @@
             // 
             label2.AutoSize = true;
             label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold);
             label2.Image = Properties.Resources.Sole;
             label2.ImageAlign = ContentAlignment.BottomLeft;
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(266, 64);
+            label2.Size = new Size(295, 74);
             label2.TabIndex = 2;
             label2.Text = "      \r\n        Quản Lý Sân Bóng";
             // 
@@ -92,6 +94,7 @@
             // 
             // tlnMenu
             // 
+            tlnMenu.BackColor = Color.FromArgb(98, 167, 234);
             tlnMenu.ColumnCount = 1;
             tlnMenu.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tlnMenu.Controls.Add(btnThemSan, 0, 4);
@@ -115,68 +118,78 @@
             // btnThemSan
             // 
             btnThemSan.Dock = DockStyle.Fill;
+            btnThemSan.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold);
             btnThemSan.Location = new Point(3, 435);
             btnThemSan.Name = "btnThemSan";
             btnThemSan.Size = new Size(229, 102);
             btnThemSan.TabIndex = 1;
             btnThemSan.Text = "Thêm Sân";
-            btnThemSan.UseVisualStyleBackColor = true;
+            btnThemSan.UseVisualStyleBackColor = false;
             btnThemSan.Click += btnThemSan_Click;
             // 
             // btnTrangChu
             // 
             btnTrangChu.Dock = DockStyle.Fill;
+            btnTrangChu.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTrangChu.ForeColor = Color.FromArgb(12, 27, 72);
             btnTrangChu.Location = new Point(3, 3);
             btnTrangChu.Name = "btnTrangChu";
             btnTrangChu.Size = new Size(229, 102);
             btnTrangChu.TabIndex = 6;
             btnTrangChu.Text = "Trang Chủ";
-            btnTrangChu.UseVisualStyleBackColor = true;
+            btnTrangChu.UseVisualStyleBackColor = false;
             btnTrangChu.Click += btnTrangChu_Click;
             // 
             // btnDatSan
             // 
             btnDatSan.Dock = DockStyle.Fill;
-            btnDatSan.ImageAlign = ContentAlignment.MiddleRight;
+            btnDatSan.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold);
+            btnDatSan.ForeColor = Color.FromArgb(12, 27, 72);
             btnDatSan.Location = new Point(3, 111);
             btnDatSan.Name = "btnDatSan";
             btnDatSan.Size = new Size(229, 102);
             btnDatSan.TabIndex = 7;
             btnDatSan.Text = "Đặt Sân";
-            btnDatSan.UseVisualStyleBackColor = true;
+            btnDatSan.UseVisualStyleBackColor = false;
             btnDatSan.Click += btnDatSan_Click;
             // 
             // btnBaoCao
             // 
             btnBaoCao.Dock = DockStyle.Fill;
+            btnBaoCao.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold);
             btnBaoCao.Location = new Point(3, 219);
             btnBaoCao.Name = "btnBaoCao";
             btnBaoCao.RightToLeft = RightToLeft.No;
             btnBaoCao.Size = new Size(229, 102);
             btnBaoCao.TabIndex = 8;
             btnBaoCao.Text = "Báo Cáo";
-            btnBaoCao.UseVisualStyleBackColor = true;
+            btnBaoCao.UseVisualStyleBackColor = false;
+            btnBaoCao.Click += btnBaoCao_Click;
             // 
             // btnDichVu
             // 
             btnDichVu.Dock = DockStyle.Fill;
+            btnDichVu.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold);
+            btnDichVu.ForeColor = Color.FromArgb(12, 27, 72);
             btnDichVu.Location = new Point(3, 327);
             btnDichVu.Name = "btnDichVu";
             btnDichVu.Size = new Size(229, 102);
             btnDichVu.TabIndex = 9;
             btnDichVu.Text = "Dịch Vụ";
-            btnDichVu.UseVisualStyleBackColor = true;
+            btnDichVu.UseVisualStyleBackColor = false;
             btnDichVu.Click += btnDichuVu_Click;
             // 
             // btnHoaDon
             // 
             btnHoaDon.Dock = DockStyle.Fill;
+            btnHoaDon.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold);
+            btnHoaDon.ForeColor = Color.FromArgb(12, 27, 72);
             btnHoaDon.Location = new Point(3, 543);
             btnHoaDon.Name = "btnHoaDon";
             btnHoaDon.Size = new Size(229, 104);
             btnHoaDon.TabIndex = 10;
             btnHoaDon.Text = "Hóa Đơn";
-            btnHoaDon.UseVisualStyleBackColor = true;
+            btnHoaDon.UseVisualStyleBackColor = false;
             btnHoaDon.Click += btnHoaDon_Click;
             // 
             // pnlContent

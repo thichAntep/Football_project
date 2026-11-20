@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using Microsoft.Data.SqlClient;
 using QuanLySanBong.DTO;
@@ -8,97 +7,107 @@ namespace QuanLySanBong.DAL
 {
     public class HoaDonDAL
     {
-        public List<HoaDonDTO> LayDSHoaDonChuaThanhToan()
+        // Danh sách hóa đơn (có lọc) - hiển thị lên dgvHoaDon
+        public DataTable TimHoaDon(DateTime tu, DateTime den, string trangThai, string tuKhoa)
         {
-            var list = new List<HoaDonDTO>();
             string query = @"
-                SELECT 
-                    h.MaHD, h.MaSan, s.TenSan,
-                    h.MaKH, ISNULL(k.TenKH, N'Khách vãng lai') AS TenKH, 
-                    ISNULL(k.SoDienThoai, '') AS SoDienThoai,
-                    h.GioVao, h.GioRa,
-                    ISNULL(ls.DonGiaGio , 0) AS DonGiaGio ,
-                    ISNULL(h.TienSan, 0) AS TienSan,
-                    ISNULL(h.TienDichVu, 0) AS TienDichVu,
-                    ISNULL(h.TongTien, 0) AS TongTien,
-                    h.TrangThai
+                SELECT h.MaHD, s.TenSan, k.TenKH, h.GioVao, h.GioRa,
+                       ISNULL(h.TongTien, 0) AS TongTien, h.TrangThai
                 FROM HoaDon h
-                JOIN SanBong s ON h.MaSan = s.MaSan
-                LEFT JOIN LoaiSan ls ON s.MaLoai = ls.MaLoai
-                LEFT JOIN KhachHang k ON h.MaKH = k.MaKH
-                WHERE h.TrangThai = N'Chưa thanh toán'
+                LEFT JOIN SanBong s   ON h.MaSan = s.MaSan
+                LEFT JOIN KhachHang k ON h.MaKH  = k.MaKH
+                WHERE h.GioVao >= @Tu AND h.GioVao < @Den
+                  AND (@TrangThai = N'' OR h.TrangThai = @TrangThai)
+                  AND (s.TenSan LIKE @TuKhoa OR k.TenKH LIKE @TuKhoa
+                       OR CAST(h.MaHD AS nvarchar(20)) LIKE @TuKhoa)
                 ORDER BY h.GioVao DESC";
 
-            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
-            foreach (DataRow r in dt.Rows)
+            return DataProvider.Instance.ExecuteQuery(query, new SqlParameter[]
             {
-                list.Add(new HoaDonDTO
-                {
-                    MaHD = Convert.ToInt32(r["MaHD"]),
-                    MaSan = Convert.ToInt32(r["MaSan"]),
-                    TenSan = r["TenSan"].ToString(),
-                    MaKH = r["MaKH"] != DBNull.Value ? Convert.ToInt32(r["MaKH"]) : (int?)null,
-                    TenKH = r["TenKH"].ToString(),
-                    SoDienThoai = r["SoDienThoai"].ToString(),
-                    GioVao = Convert.ToDateTime(r["GioVao"]),
-                    GioRa = r["GioRa"] != DBNull.Value ? Convert.ToDateTime(r["GioRa"]) : (DateTime?)null,
-                    DonGiaGio = Convert.ToDecimal(r["DonGiaGio "]),
-                    TienSan = Convert.ToDecimal(r["TienSan"]),
-                    TienDichVu = Convert.ToDecimal(r["TienDichVu"]),
-                    TongTien = Convert.ToDecimal(r["TongTien"]),
-                    TrangThai = r["TrangThai"].ToString()
-                });
-            }
-            return list;
+                new SqlParameter("@Tu", tu.Date),
+                new SqlParameter("@Den", den.Date.AddDays(1)),
+                new SqlParameter("@TrangThai", trangThai ?? ""),
+                new SqlParameter("@TuKhoa", "%" + (tuKhoa ?? "") + "%")
+            });
         }
 
-        public List<ChiTietDichVuDTO> LayChiTietDichVu(int maHD)
+        // Chi tiết dịch vụ của 1 hóa đơn - hiển thị lên dgvChiTiet
+        public DataTable GetChiTietDichVu(int maHD)
         {
-            var list = new List<ChiTietDichVuDTO>();
             string query = @"
-                SELECT ct.MaHD, ct.MaDV, dv.TenDV, ct.SoLuong, ct.DonGia
-                FROM ChiTietDichVu ct
-                JOIN DichVu dv ON ct.MaDV = dv.MaDV
-                WHERE ct.MaHD = @MaHD";
+                SELECT d.TenDV, d.DVT, c.SoLuong, c.DonGia, c.ThanhTien
+                FROM ChiTietDichVu c
+                JOIN DichVu d ON c.MaDV = d.MaDV
+                WHERE c.MaHD = @MaHD";
 
-            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new SqlParameter[] { new SqlParameter("@MaHD", maHD) });
-            foreach (DataRow r in dt.Rows)
-            {
-                list.Add(new ChiTietDichVuDTO
-                {
-                    MaHD = Convert.ToInt32(r["MaHD"]),
-                    MaDV = Convert.ToInt32(r["MaDV"]),
-                    TenDV = r["TenDV"].ToString(),
-                    SoLuong = Convert.ToInt32(r["SoLuong"]),
-                    DonGia = Convert.ToDecimal(r["DonGia"])
-                });
-            }
-            return list;
+            return DataProvider.Instance.ExecuteQuery(query,
+                new SqlParameter[] { new SqlParameter("@MaHD", maHD) });
         }
 
-        public bool ThanhToanHoaDon(int maHD, int maSan, DateTime gioRa, decimal tienSan, decimal tienDV, decimal tongTien)
+        // Lấy 1 hóa đơn theo mã
+        public HoaDonDTO GetById(int maHD)
+        {
+            DataTable dt = DataProvider.Instance.ExecuteQuery(
+                "SELECT * FROM HoaDon WHERE MaHD = @MaHD",
+                new SqlParameter[] { new SqlParameter("@MaHD", maHD) });
+
+            if (dt.Rows.Count == 0) return null;
+            DataRow r = dt.Rows[0];
+
+            return new HoaDonDTO
+            {
+                MaHD = (int)r["MaHD"],
+                MaSan = r["MaSan"] == DBNull.Value ? (int?)null : (int)r["MaSan"],
+                MaKH = r["MaKH"] == DBNull.Value ? (int?)null : (int)r["MaKH"],
+                MaTK = r["MaTK"] == DBNull.Value ? (int?)null : (int)r["MaTK"],
+                GioVao = (DateTime)r["GioVao"],
+                GioRa = r["GioRa"] == DBNull.Value ? (DateTime?)null : (DateTime)r["GioRa"],
+                TienSan = r["TienSan"] == DBNull.Value ? 0 : (decimal)r["TienSan"],
+                TienDichVu = r["TienDichVu"] == DBNull.Value ? 0 : (decimal)r["TienDichVu"],
+                TongTien = r["TongTien"] == DBNull.Value ? 0 : (decimal)r["TongTien"],
+                TrangThai = r["TrangThai"] == DBNull.Value ? "" : r["TrangThai"].ToString()
+            };
+        }
+
+        // Đơn giá giờ của sân (SanBong -> LoaiSan)
+        public decimal GetDonGiaGio(int maSan)
+        {
+            object v = DataProvider.Instance.ExecuteScalar(@"
+                SELECT l.DonGiaGio FROM SanBong s
+                JOIN LoaiSan l ON s.MaLoai = l.MaLoai
+                WHERE s.MaSan = @MaSan",
+                new SqlParameter[] { new SqlParameter("@MaSan", maSan) });
+
+            return v == null || v == DBNull.Value ? 0 : Convert.ToDecimal(v);
+        }
+
+        public decimal TongTienDichVu(int maHD)
+        {
+            object v = DataProvider.Instance.ExecuteScalar(
+                "SELECT ISNULL(SUM(ThanhTien), 0) FROM ChiTietDichVu WHERE MaHD = @MaHD",
+                new SqlParameter[] { new SqlParameter("@MaHD", maHD) });
+
+            return Convert.ToDecimal(v);
+        }
+
+        public int CapNhatThanhToan(int maHD, DateTime gioRa, decimal tienSan,
+                                    decimal tienDichVu, decimal tongTien, string trangThai)
         {
             string query = @"
-                UPDATE HoaDon 
-                SET GioRa = @GioRa,
-                    TienSan = @TienSan,
-                    TienDichVu = @TienDichVu,
-                    TongTien = @TongTien,
-                    TrangThai = N'Đã thanh toán'
-                WHERE MaHD = @MaHD;
+                UPDATE HoaDon
+                SET GioRa = @GioRa, TienSan = @TienSan, TienDichVu = @TienDV,
+                    TongTien = @TongTien, TrangThai = @TrangThai
+                WHERE MaHD = @MaHD";
 
-                UPDATE SanBong SET TrangThai = N'Trống' WHERE MaSan = @MaSan;";
-
-            SqlParameter[] p = {
+            return DataProvider.Instance.ExecuteNonQuery(query, new SqlParameter[]
+            {
                 new SqlParameter("@GioRa", gioRa),
                 new SqlParameter("@TienSan", tienSan),
-                new SqlParameter("@TienDichVu", tienDV),
+                new SqlParameter("@TienDV", tienDichVu),
                 new SqlParameter("@TongTien", tongTien),
-                new SqlParameter("@MaHD", maHD),
-                new SqlParameter("@MaSan", maSan)
-            };
-
-            return DataProvider.Instance.ExecuteNonQuery(query, p) > 0;
+                new SqlParameter("@TrangThai", trangThai),
+                new SqlParameter("@MaHD", maHD)
+            });
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
 using QuanLySanBong.DAL;
 using QuanLySanBong.DTO;
 
@@ -8,44 +7,40 @@ namespace QuanLySanBong.BUS
 {
     public class HoaDonBUS
     {
+        public const string CHUA_THANH_TOAN = "Chưa thanh toán";
+        public const string DA_THANH_TOAN = "Đã thanh toán";
+
         private readonly HoaDonDAL dal = new HoaDonDAL();
 
-        public List<HoaDonDTO> LayDanhSachHoaDonChuaThanhToan()
+        public DataTable TimHoaDon(DateTime tu, DateTime den, string trangThai, string tuKhoa)
         {
-            return dal.LayDSHoaDonChuaThanhToan();
+            if (tu.Date > den.Date)
+                throw new Exception("Ngày bắt đầu không được lớn hơn ngày kết thúc.");
+            return dal.TimHoaDon(tu, den, trangThai, tuKhoa);
         }
 
-        public List<ChiTietDichVuDTO> LayChiTietDichVu(int maHD)
+        public DataTable GetChiTietDichVu(int maHD) => dal.GetChiTietDichVu(maHD);
+
+        public HoaDonDTO GetById(int maHD) => dal.GetById(maHD);
+
+        public HoaDonDTO ThanhToan(int maHD)
         {
-            return dal.LayChiTietDichVu(maHD);
-        }
+            HoaDonDTO hd = dal.GetById(maHD);
+            if (hd == null) throw new Exception("Không tìm thấy hóa đơn.");
+            if (hd.TrangThai == DA_THANH_TOAN) throw new Exception("Hóa đơn này đã thanh toán.");
 
-        // Tính tiền sân theo phút thực tế x GiaTheoGio / 60
-        public decimal TinhTienSan(DateTime gioVao, DateTime gioRa, decimal giaTheoGio)
-        {
-            double tongPhut = (gioRa - gioVao).TotalMinutes;
-            if (tongPhut <= 0) tongPhut = 60; // Mặc định tối thiểu 1 tiếng
+            DateTime gioRa = DateTime.Now;
+            decimal gio = (decimal)(gioRa - hd.GioVao).TotalHours;
+            decimal donGia = hd.MaSan.HasValue ? dal.GetDonGiaGio(hd.MaSan.Value) : 0;
 
-            decimal tien = (decimal)(tongPhut / 60.0) * giaTheoGio;
-            return Math.Round(tien / 1000) * 1000; // Làm tròn đến hàng nghìn VNĐ
-        }
+            hd.GioRa = gioRa;
+            hd.TienSan = Math.Round(gio * donGia, 0);
+            hd.TienDichVu = dal.TongTienDichVu(maHD);
+            hd.TongTien = hd.TienSan + hd.TienDichVu;
+            hd.TrangThai = DA_THANH_TOAN;
 
-        public bool ThanhToan(HoaDonDTO hd, DateTime gioRa, out string loi)
-        {
-            loi = "";
-            try
-            {
-                decimal tienSan = TinhTienSan(hd.GioVao, gioRa, hd.DonGiaGio);
-                decimal tienDV = hd.DanhSachDichVu.Sum(x => x.ThanhTien);
-                decimal tongTien = tienSan + tienDV;
-
-                return dal.ThanhToanHoaDon(hd.MaHD, hd.MaSan, gioRa, tienSan, tienDV, tongTien);
-            }
-            catch (Exception ex)
-            {
-                loi = ex.Message;
-                return false;
-            }
+            dal.CapNhatThanhToan(maHD, gioRa, hd.TienSan, hd.TienDichVu, hd.TongTien, hd.TrangThai);
+            return hd;
         }
     }
 }
